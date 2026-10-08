@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
+<title>Estados do aluno — UML</title><style>
+html,body{margin:0;background:white;}svg{display:block;width:1488px;height:804px;}
+.state-name{font:600 22px 'Segoe UI',sans-serif;fill:#20252b;}
+.event{font:18px Consolas,monospace;fill:#20252b;}
+.edge{fill:none;stroke:#4b5563;stroke-width:1.8;}
+</style></head><body>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1488 804" role="img" aria-labelledby="diagrama-estados-title diagrama-estados-desc">
+<title id="diagrama-estados-title">Estados acadêmicos do aluno</title>
+<desc id="diagrama-estados-desc">O aluno inicia matriculado, pode trancar e se rematricular; matriculado pode formar, transferir, evadir ou jubilar, enquanto trancado pode transferir, evadir ou jubilar; esses quatro estados não permitem novas transições.</desc>
+<defs><marker id="state-arrow" markerWidth="12" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12" fill="none" stroke="#4b5563" stroke-width="1.8"/></marker></defs>
+<rect width="1488" height="804" fill="white"/>
+<circle cx="744" cy="40" r="8" fill="#20252b"/>
+<path class="edge" d="M744 48 V120" marker-end="url(#state-arrow)"/>
+
+<g class="transition" data-source="Matriculado" data-target="Formado" data-event="formar()">
+<path class="edge" d="M888 144 H1136" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Matriculado" data-target="Evadido" data-event="evadir()">
+<path class="edge" d="M648 208 V304 Q648 312 640 312 H216 Q208 312 208 320 V416" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Matriculado" data-target="Transferido" data-event="transferir()">
+<path class="edge" d="M744 208 V416" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Matriculado" data-target="Jubilado" data-event="jubilar()">
+<path class="edge" d="M840 208 V304 Q840 312 848 312 H1272 Q1280 312 1280 320 V416" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Trancado" data-target="Evadido" data-event="evadir()">
+<path class="edge" d="M648 684 V604 Q648 596 640 596 H216 Q208 596 208 588 V504" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Trancado" data-target="Transferido" data-event="transferir()">
+<path class="edge" d="M744 684 V504" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Trancado" data-target="Jubilado" data-event="jubilar()">
+<path class="edge" d="M840 684 V604 Q840 596 848 596 H1272 Q1280 596 1280 588 V504" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Matriculado" data-target="Trancado" data-event="trancar()">
+<path d="M600 164 H484 Q476 164 476 172 V304 Q484 304 484 312 Q484 320 476 320 V588 Q484 588 484 596 Q484 604 476 604 V720 Q476 728 484 728 H600" fill="none" stroke="white" stroke-width="7"/>
+<path class="edge" d="M600 164 H484 Q476 164 476 172 V304 Q484 304 484 312 Q484 320 476 320 V588 Q484 588 484 596 Q484 604 476 604 V720 Q476 728 484 728 H600" marker-end="url(#state-arrow)"/></g>
+<g class="transition" data-source="Trancado" data-target="Matriculado" data-event="matricular()">
+<path d="M888 728 H1024 Q1032 728 1032 720 V604 Q1040 604 1040 596 Q1040 588 1032 588 V320 Q1040 320 1040 312 Q1040 304 1032 304 V192 Q1032 184 1024 184 H888" fill="none" stroke="white" stroke-width="7"/>
+<path class="edge" d="M888 728 H1024 Q1032 728 1032 720 V604 Q1040 604 1040 596 Q1040 588 1032 588 V320 Q1040 320 1040 312 Q1040 304 1032 304 V192 Q1032 184 1024 184 H888" marker-end="url(#state-arrow)"/></g>
+<rect class="label-mask" x="952" y="96" width="96" height="24" fill="white"/>
+<text class="event" x="960" y="116">formar()</text>
+<rect class="label-mask" x="292" y="264" width="96" height="24" fill="white"/>
+<text class="event" x="300" y="284">evadir()</text>
+<rect class="label-mask" x="756" y="332" width="136" height="24" fill="white"/>
+<text class="event" x="764" y="352">transferir()</text>
+<rect class="label-mask" x="1092" y="264" width="106" height="24" fill="white"/>
+<text class="event" x="1100" y="284">jubilar()</text>
+<rect class="label-mask" x="292" y="548" width="96" height="24" fill="white"/>
+<text class="event" x="300" y="568">evadir()</text>
+<rect class="label-mask" x="756" y="548" width="136" height="24" fill="white"/>
+<text class="event" x="764" y="568">transferir()</text>
+<rect class="label-mask" x="1092" y="548" width="106" height="24" fill="white"/>
+<text class="event" x="1100" y="568">jubilar()</text>
+<rect class="label-mask" x="344" y="612" width="106" height="24" fill="white"/>
+<text class="event" x="352" y="632">trancar()</text>
+<rect class="label-mask" x="1044" y="612" width="136" height="24" fill="white"/>
+<text class="event" x="1052" y="632">matricular()</text>
+<g class="state-box" data-name="Matriculado"><rect x="600" y="120" width="288" height="88" rx="8" fill="#e4edf5" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="744" y="172" text-anchor="middle">Matriculado</text></g>
+<g class="state-box" data-name="Trancado"><rect x="600" y="684" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="744" y="736" text-anchor="middle">Trancado</text></g>
+<g class="state-box" data-name="Formado"><rect x="1136" y="120" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="1280" y="172" text-anchor="middle">Formado</text></g>
+<g class="state-box" data-name="Evadido"><rect x="64" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="208" y="468" text-anchor="middle">Evadido</text></g>
+<g class="state-box" data-name="Transferido"><rect x="600" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="744" y="468" text-anchor="middle">Transferido</text></g>
+<g class="state-box" data-name="Jubilado"><rect x="1136" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="1280" y="468" text-anchor="middle">Jubilado</text></g>
+</svg></body></html>
