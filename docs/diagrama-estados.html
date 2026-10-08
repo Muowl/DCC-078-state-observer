@@ -1,15 +1,15 @@
 <!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
 <title>Estados do aluno — UML</title><style>
-html,body{margin:0;background:white;}svg{display:block;width:1488px;height:804px;}
+html,body{margin:0;background:white;}svg{display:block;width:1552px;height:804px;}
 .state-name{font:600 22px 'Segoe UI',sans-serif;fill:#20252b;}
 .event{font:18px Consolas,monospace;fill:#20252b;}
 .edge{fill:none;stroke:#4b5563;stroke-width:1.8;}
 </style></head><body>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1488 804" role="img" aria-labelledby="diagrama-estados-title diagrama-estados-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1552 804" role="img" aria-labelledby="diagrama-estados-title diagrama-estados-desc">
 <title id="diagrama-estados-title">Estados acadêmicos do aluno</title>
-<desc id="diagrama-estados-desc">O aluno inicia matriculado, pode trancar e se rematricular; matriculado pode formar, transferir, evadir ou jubilar, enquanto trancado pode transferir, evadir ou jubilar; esses quatro estados não permitem novas transições.</desc>
+<desc id="diagrama-estados-desc">O aluno inicia matriculado, pode trancar e se rematricular; matriculado pode formar, transferir, evadir ou jubilar, enquanto trancado pode transferir, evadir ou jubilar. Formado, Evadido, Transferido e Jubilado não permitem novas mudanças de situação acadêmica; cada um se liga a um estado final UML, indicando o encerramento do ciclo acadêmico modelado.</desc>
 <defs><marker id="state-arrow" markerWidth="12" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse"><path d="M0 0 L12 6 L0 12" fill="none" stroke="#4b5563" stroke-width="1.8"/></marker></defs>
-<rect width="1488" height="804" fill="white"/>
+<rect width="1552" height="804" fill="white"/>
 <circle cx="744" cy="40" r="8" fill="#20252b"/>
 <path class="edge" d="M744 48 V120" marker-end="url(#state-arrow)"/>
 
@@ -57,4 +57,25 @@ html,body{margin:0;background:white;}svg{display:block;width:1488px;height:804px
 <g class="state-box" data-name="Evadido"><rect x="64" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="208" y="468" text-anchor="middle">Evadido</text></g>
 <g class="state-box" data-name="Transferido"><rect x="600" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="744" y="468" text-anchor="middle">Transferido</text></g>
 <g class="state-box" data-name="Jubilado"><rect x="1136" y="416" width="288" height="88" rx="8" fill="#eeeeee" stroke="#4b5563" stroke-width="1.5"/><text class="state-name" x="1280" y="468" text-anchor="middle">Jubilado</text></g>
+<!-- Transições de conclusão do ciclo acadêmico, sem novos eventos de domínio. -->
+<g class="completion-transition" data-source="Formado" data-target="FinalFormado">
+<path class="edge" d="M1424 164 H1472" marker-end="url(#state-arrow)"/></g>
+<g class="completion-transition" data-source="Evadido" data-target="FinalEvadido">
+<path class="edge" d="M352 460 H400" marker-end="url(#state-arrow)"/></g>
+<g class="completion-transition" data-source="Transferido" data-target="FinalTransferido">
+<path class="edge" d="M888 460 H936" marker-end="url(#state-arrow)"/></g>
+<g class="completion-transition" data-source="Jubilado" data-target="FinalJubilado">
+<path class="edge" d="M1424 460 H1472" marker-end="url(#state-arrow)"/></g>
+<g class="final-state" data-name="FinalFormado">
+<circle cx="1484" cy="164" r="12" fill="white" stroke="#20252b" stroke-width="1.8"/>
+<circle cx="1484" cy="164" r="7" fill="#20252b"/></g>
+<g class="final-state" data-name="FinalEvadido">
+<circle cx="412" cy="460" r="12" fill="white" stroke="#20252b" stroke-width="1.8"/>
+<circle cx="412" cy="460" r="7" fill="#20252b"/></g>
+<g class="final-state" data-name="FinalTransferido">
+<circle cx="948" cy="460" r="12" fill="white" stroke="#20252b" stroke-width="1.8"/>
+<circle cx="948" cy="460" r="7" fill="#20252b"/></g>
+<g class="final-state" data-name="FinalJubilado">
+<circle cx="1484" cy="460" r="12" fill="white" stroke="#20252b" stroke-width="1.8"/>
+<circle cx="1484" cy="460" r="7" fill="#20252b"/></g>
 </svg></body></html>
